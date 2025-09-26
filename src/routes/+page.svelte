@@ -31,7 +31,7 @@
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo -->
 			<div class="flex items-center">
-				<h1 class="text-2xl font-bold text-gradient">📚 BookStore</h1>
+				<h1 class="text-2xl font-bold text-gradient">📚 Dani's BookStore</h1>
 			</div>
 			
 			<!-- Navigation Links -->
@@ -43,11 +43,11 @@
 			
 			<!-- Mobile menu button -->
 			<div class="md:hidden">
-				<button class="text-gray-700 hover:text-primary-600">
+				<!-- <button class="text-gray-700 hover:text-primary-600">
 					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
 					</svg>
-				</button>
+				</button> -->
 			</div>
 		</div>
 	</div>

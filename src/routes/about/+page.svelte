@@ -15,14 +15,14 @@
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo -->
 			<div class="flex items-center">
-				<a href="/" class="text-2xl font-bold text-gradient">📚 BookStore</a>
+				<a href="/" class="text-2xl font-bold text-gradient">📚 Dani's BookStore</a>
 			</div>
 			
 			<!-- Navigation Links -->
 			<div class="hidden md:flex space-x-8">
 				<a href="/" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Home</a>
 				<a href="/about" class="text-primary-600 font-medium">About</a>
-				<a href="#contact" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Contact</a>
+				<a href="/contact" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Contact</a>
 			</div>
 		</div>
 	</div>

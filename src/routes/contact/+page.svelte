@@ -5,7 +5,8 @@
 	let isSubmitting = $state(false);
 	let isSubmitted = $state(false);
 	
-	function handleSubmit() {
+	function handleSubmit(e: Event) {
+		e.preventDefault();
 		if (!name || !email || !message) return;
 		
 		isSubmitting = true;
@@ -32,7 +33,7 @@
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo -->
 			<div class="flex items-center">
-				<a href="/" class="text-2xl font-bold text-gradient">📚 BookStore</a>
+				<a href="/" class="text-2xl font-bold text-gradient">📚 Dani's BookStore</a>
 			</div>
 			
 			<!-- Navigation Links -->
@@ -74,7 +75,7 @@
 						<p class="text-green-600">Thank you for your message. We'll get back to you soon!</p>
 					</div>
 				{:else}
-					<form onsubmit|preventDefault={handleSubmit} class="space-y-6">
+					<form onsubmit={handleSubmit} class="space-y-6">
 						<div>
 							<label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
 							<input
