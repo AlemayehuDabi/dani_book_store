@@ -1,4 +1,7 @@
 <script lang="ts">
+  import Footer from "$lib/components/Footer.svelte";
+  import NavBar from "$lib/components/NavBar.svelte";
+
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
@@ -10,23 +13,7 @@
 </svelte:head>
 
 <!-- Navigation -->
-<nav class="bg-white shadow-lg sticky top-0 z-50">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex justify-between items-center h-16">
-			<!-- Logo -->
-			<div class="flex items-center">
-				<a href="/" class="text-2xl font-bold text-gradient">📚 Dani's BookStore</a>
-			</div>
-			
-			<!-- Navigation Links -->
-			<div class="hidden md:flex space-x-8">
-				<a href="/" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Home</a>
-				<a href="/about" class="text-primary-600 font-medium">About</a>
-				<a href="/contact" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Contact</a>
-			</div>
-		</div>
-	</div>
-</nav>
+<NavBar />
 
 <!-- Hero Section -->
 <section class="hero-gradient py-20">
@@ -91,41 +78,4 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-white py-12">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-			<!-- Brand -->
-			<div class="col-span-1 md:col-span-2">
-				<h3 class="text-2xl font-bold mb-4">📚 BookStore</h3>
-				<p class="text-gray-300 mb-4">
-					Your gateway to great books. Discover amazing stories, knowledge, and inspiration 
-					from our curated collection.
-				</p>
-			</div>
-			
-			<!-- Quick Links -->
-			<div>
-				<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-				<ul class="space-y-2">
-					<li><a href="/" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
-					<li><a href="/about" class="text-gray-300 hover:text-white transition-colors duration-200">About</a></li>
-					<li><a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-200">Contact</a></li>
-				</ul>
-			</div>
-			
-			<!-- Contact Info -->
-			<div>
-				<h4 class="text-lg font-semibold mb-4">Contact</h4>
-				<div class="space-y-2 text-gray-300">
-					<p>📧 info@bookstore.com</p>
-					<p>📞 (555) 123-4567</p>
-					<p>📍 123 Book Street<br>Reading City, RC 12345</p>
-				</div>
-			</div>
-		</div>
-		
-		<div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-			<p>&copy; 2024 BookStore. All rights reserved. Made with ❤️ for book lovers.</p>
-		</div>
-	</div>
-</footer>
+<Footer />
