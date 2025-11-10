@@ -8,8 +8,13 @@
 	let selectedGenre = $state('All');
 	let filteredBooks = $state(books);
 	
-	function filterBooks() {
-		filteredBooks = books.filter(book => {
+	async function filterBooks() {
+
+		const resp = await fetch('/book')
+
+		const bookResp = await resp.json()
+
+		filteredBooks = bookResp.filter((book: Book) => {
 			const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
 								book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
 								book.description.toLowerCase().includes(searchQuery.toLowerCase());
