@@ -16,6 +16,8 @@
 				<a href="/" class="text-primary-600 font-medium">Home</a>
 				<a href="/about" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">About</a>
 				<a href="/contact" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Contact</a>
+				<a href="/auth/signin" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Sign-in</a>
+				<a href="/auth/signup" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Sign-up</a>
 			</div>
 			
 			<!-- Mobile menu button -->
