@@ -1,0 +1,26 @@
+-- CreateTable
+CREATE TABLE "User" (
+    "id" SERIAL NOT NULL,
+    "email" TEXT NOT NULL,
+    "name" TEXT,
+    "hashedPassword" TEXT NOT NULL,
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Books" (
+    "id" SERIAL NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT,
+    "isInStock" BOOLEAN NOT NULL DEFAULT false,
+    "bookId" INTEGER NOT NULL,
+
+    CONSTRAINT "Books_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- AddForeignKey
+ALTER TABLE "Books" ADD CONSTRAINT "Books_bookId_fkey" FOREIGN KEY ("bookId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
