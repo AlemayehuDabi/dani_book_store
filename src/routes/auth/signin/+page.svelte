@@ -8,7 +8,7 @@
 
   function handleSubmit (e: Event) {
     e.preventDefault()
-    console.log(e)
+    console.log(e.target)
   }
 
 </script>
@@ -57,7 +57,7 @@
 						bind:value={email}
 						required
 						class="w-full px-4 py-3 border border-[#d9c9b3] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c49b63] bg-white placeholder:text-[#b79c7b]"
-						placeholder="you@example.com"
+						placeholder="jon@example.com"
 					/>
 				</div>
 
