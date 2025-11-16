@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -15,12 +14,43 @@ datasource db {
 }
 
 model User {
-  id             Int     @id @default(autoincrement())
-  email          String  @unique
-  name           String?
-  hashedPassword String
-  role           String  @default("user")
-  books          Books[]
+  id       String  @id @default(uuid())
+  email    String  @unique
+  name     String?
+  password String
+  role     String  @default("user")
+  books    Books[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  // relations required by lucia adapter
+  auth_session Session[] @relation("user_sessions")
+  key          Key[]     @relation("user_keys")
+}
+
+model Session {
+  id             String @id @unique @default(cuid())
+  user_id        String
+  active_expires BigInt
+  idle_expires   BigInt
+
+  user User @relation("user_sessions", fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id])
+}
+
+model Key {
+  id               String  @id @unique @default(cuid())
+  hashed_password  String?
+  provider_id      String
+  provider_user_id String
+  user_id          String
+
+  user User @relation("user_keys", fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([provider_id, provider_user_id]) // ensure provider+id pair is unique
+  @@index([user_id])
 }
 
 model Books {
@@ -28,6 +58,9 @@ model Books {
   title       String
   description String?
   isInStock   Boolean @default(false)
-  bookId      Int
+  bookId      String
   author      User    @relation(fields: [bookId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }

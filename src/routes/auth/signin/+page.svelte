@@ -1,16 +1,13 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
   import BookShelf from "$lib/assets/bookshelf.jpg"
+  import { enhance } from "$app/forms";
+//   import type{ ActionData } from "./$types"
 
-  let email ="";
-  let password = "";
+//   export let form:ActionData;
+  export let form;
+
   let showPassword = false;
-
-  function handleSubmit (e: Event) {
-    e.preventDefault()
-    console.log(e.target)
-  }
-
 </script>
 
 
@@ -49,12 +46,12 @@
 				<p class="text-[#856b53] mt-1">Sign in to continue exploring your next read.</p>
 			</div>
 
-			<form on:submit={handleSubmit} class="space-y-5">
+			<form method="POST" use:enhance class="space-y-5">
 				<div>
 					<label class="block text-[#6b4226] mb-1 font-medium">Email</label>
 					<input
 						type="email"
-						bind:value={email}
+						name="email"
 						required
 						class="w-full px-4 py-3 border border-[#d9c9b3] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c49b63] bg-white placeholder:text-[#b79c7b]"
 						placeholder="jon@example.com"
@@ -66,7 +63,7 @@
 					<div class="relative">
 						<input
 							type={showPassword ? 'text' : 'password'}
-							bind:value={password}
+							name="password"
 							required
 							class="w-full px-4 py-3 border border-[#d9c9b3] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c49b63] bg-white placeholder:text-[#b79c7b]"
 							placeholder="••••••••"
@@ -92,6 +89,13 @@
 					</label>
 					<a href="/auth/forgot" class="text-[#c49b63] hover:underline">Forgot password?</a>
 				</div>
+
+				<!-- {#if form?.error}
+					<p>{form.error}</p>
+				{/if}
+				{#if form?.success}
+					<p>Login success!</p>
+				{/if} -->
 
 				<button
 					type="submit"
