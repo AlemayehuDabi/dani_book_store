@@ -97,7 +97,7 @@
 
 			<p class="text-center text-sm text-[#856b53] mt-6">
 				Already have account.
-				<a href="/auth/signin" class="text-[#c49b63] font-medium hover:underline">Sign in</a>
+				<a href="/signin" class="text-[#c49b63] font-medium hover:underline">Sign in</a>
 			</p>
 		</div>
 	</div>

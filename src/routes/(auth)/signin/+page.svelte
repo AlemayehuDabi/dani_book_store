@@ -107,7 +107,7 @@
 
 			<p class="text-center text-sm text-[#856b53] mt-6">
 				Don’t have an account?
-				<a href="/auth/signup" class="text-[#c49b63] font-medium hover:underline">Sign up</a>
+				<a href="/signup" class="text-[#c49b63] font-medium hover:underline">Sign up</a>
 			</p>
 		</div>
 	</div>
