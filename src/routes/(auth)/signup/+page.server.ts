@@ -7,19 +7,24 @@ export const actions: Actions = {
   default: async ({ request, cookies }) => {
     const data = await request.formData();
 
+    console.log('data in signup action');
+
     const { name, email, password } = Object.fromEntries(data) as Record<
       string,
       string
     >;
 
+    console.log('destructured data in signup action', name, email, password);
+
     const user = await prisma.user.findUnique({
-      where: {
-        email,
-      },
+      where: { email },
     });
 
     if (user) {
-      return fail(400, 'User already exist');
+      return fail(400, {
+        state: 'error',
+        message: 'User already exists',
+      });
     }
 
     const hashedPassword = await new Argon2id().hash(password);
