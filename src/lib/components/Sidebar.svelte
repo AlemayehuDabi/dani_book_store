@@ -1,13 +1,16 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import { LayoutDashboard, Book, ShoppingCart, Users, Tag, BarChart, Settings } from '@lucide/svelte';
+
+  let isOpen = $state(false);
   const items = [
-    { title: 'Dashboard', href: '/dashboard', icon: 'home' },
-    { title: 'Books', href: '/books', icon: 'book' },
-    { title: 'Orders', href: '/orders', icon: 'shopping-cart' },
-    { title: 'Users', href: '/users', icon: 'users' },
-    { title: 'Categories', href: '/categories', icon: 'tag' },
-    { title: 'Analytics', href: '/analytics', icon: 'bar-chart' },
-    { title: 'Settings', href: '/settings', icon: 'settings' },
+    { title: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+    { title: 'Books', href: '/books', icon: Book },
+    { title: 'Orders', href: '/orders', icon: ShoppingCart },
+    { title: 'Users', href: '/users', icon: Users },
+    { title: 'Categories', href: '/categories', icon: Tag },
+    { title: 'Analytics', href: '/analytics', icon: BarChart },
+    { title: 'Settings', href: '/settings', icon: Settings },
   ];
 
   function navigate(href: string) {
@@ -18,39 +21,29 @@
 <aside
   class="w-20 lg:w-64 bg-white border-r border-gray-200 min-h-screen sticky top-0"
 >
+
   <div class="h-16 flex items-center justify-center lg:justify-start px-4">
     <div
       class="flex items-center gap-3 cursor-pointer"
-      on:click={() => navigate('/admin/dashboard')}
+      on:click={() => navigate('/dashboard')}
     >
       <div
         class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-600 to-indigo-400 flex items-center justify-center text-white font-bold"
       >
         DB
       </div>
-      <div class="hidden lg:block text-lg font-semibold">Dani Admin</div>
+      <div class="hidden lg:block text-lg font-semibold">DBS Admin</div>
     </div>
   </div>
 
   <nav class="mt-6 px-2">
     {#each items as item}
+    {@const Icon= item.icon}
       <a
         class="group flex items-center gap-3 p-2 rounded-md hover:bg-gray-50 cursor-pointer"
         on:click={() => navigate(item.href)}
       >
-        <svg
-          class="w-5 h-5 text-gray-500 group-hover:text-indigo-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M3 7h18M3 12h18M3 17h18"
-          ></path></svg
-        >
+      <Icon size={20} class="text-gray-500 group-hover:text-indigo-600" />
         <span class="hidden lg:block">{item.title}</span>
       </a>
     {/each}

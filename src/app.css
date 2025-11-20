@@ -1,5 +1,56 @@
 @import "tailwindcss";
 
+@theme {
+  /* ====================== PRIMARY – AGED BURGUNDY (Pure bookstore luxury) ====================== */
+  --color-primary-50:  #fdf8f9;
+  --color-primary-100: #f7ecee;
+  --color-primary-200: #eddbdf;
+  --color-primary-300: #e0c2c8;
+  --color-primary-400: #cf9aa3;
+  --color-primary-500: #b87580;   /* Main brand color – elegant, warm, visible */
+  --color-primary-600: #a35d67;   /* Hover state – richer */
+  --color-primary-700: #884a52;   /* Selected tabs, active items */
+  --color-primary-800: #6d3a41;
+  --color-primary-900: #572f35;
+  --color-primary-950: #33191d;   /* Deep wine shadow */
+
+  /* ====================== NEUTRALS – Warm stone (pairs perfectly with burgundy) ====================== */
+  --color-gray-50:  #faf9f8;
+  --color-gray-100: #f5f1ef;
+  --color-gray-200: #e8e2de;
+  --color-gray-300: #d8d0ca;
+  --color-gray-400: #b0a89f;
+  --color-gray-500: #8c766d;
+  --color-gray-600: #6b5851;
+  --color-gray-700: #4b3f3a;
+  --color-gray-800: #2f2825;
+  --color-gray-900: #1c1715;
+  --color-gray-950: #0d0b0a;
+
+  /* ====================== LIGHT MODE ====================== */
+  --color-bg-base:     #ffffff;
+  --color-bg-surface:  #fdf9f8;
+  --color-bg-muted:    #f7f1ef;
+  --color-text-primary:#2c1e1a;
+  --color-text-secondary:#5a4a44;
+  --color-border:      #e8e2de;
+}
+
+/* ====================== DARK MODE – This is straight-up gorgeous ====================== */
+.dark {
+  --color-bg-base:     #110e0d;
+  --color-bg-surface:  #1a1514;
+  --color-bg-muted:    #221d1c;
+  --color-text-primary:#f7ecee;
+  --color-text-secondary:#d8c7c4;
+  --color-border:      #332d2b;
+
+  /* Primary gets a subtle rose-gold glow in dark mode */
+  --color-primary-500: #d68a95;
+  --color-primary-600: #e8a9b1;
+  --color-primary-700: #f0c2c9;
+}
+
 /* 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 

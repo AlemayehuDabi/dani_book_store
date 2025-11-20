@@ -30,36 +30,36 @@
       <div class="w-full max-w-md">
         <div class="text-center mb-6">
           <!-- <img src="/book-logo.svg" alt="Bookstore Logo" class="mx-auto w-14 h-14 mb-2" /> -->
-          <h1 class="text-3xl font-serif text-[#6b4226]">Welcome To DBS</h1>
-          <p class="text-[#856b53] mt-1">Sign up to explore your next read.</p>
+          <h1 class="text-3xl font-serif text-primary-800">Welcome To DBS</h1>
+          <p class="text-primary-900 mt-1">Sign up to explore your next read.</p>
         </div>
 
         <form method="POST" use:enhance class="space-y-5">
           <div>
             <label
               for="signup-name"
-              class="block text-[#6b4226] mb-1 font-medium">Name</label
+              class="block text-primary-800 mb-1 font-medium">Name</label
             >
             <input
               type="text"
               name="name"
               id="signup-name"
               required
-              class="w-full px-4 py-3 border border-[#d9c9b3] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c49b63] bg-white placeholder:text-[#b79c7b]"
+              class="w-full px-4 py-3 border border-primary-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary-400 bg-white placeholder:text-primary-300"
               placeholder="Jon"
             />
           </div>
           <div>
             <label
               for="signup-email"
-              class="block text-[#6b4226] mb-1 font-medium">Email</label
+              class="block text-primary-800 mb-1 font-medium">Email</label
             >
             <input
               type="email"
               name="email"
               id="signup-email"
               required
-              class="w-full px-4 py-3 border border-[#d9c9b3] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c49b63] bg-white placeholder:text-[#b79c7b]"
+              class="w-full px-4 py-3 border border-primary-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary-400 bg-white placeholder:text-primary-300"
               placeholder="jon@example.com"
             />
           </div>
@@ -67,7 +67,7 @@
           <div>
             <label
               for="signup-password"
-              class="block text-[#6b4226] mb-1 font-medium">Password</label
+              class="block text-primary-800 mb-1 font-medium">Password</label
             >
             <div class="relative">
               <input
@@ -75,12 +75,12 @@
                 name="password"
                 id="signup-password"
                 required
-                class="w-full px-4 py-3 border border-[#d9c9b3] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c49b63] bg-white placeholder:text-[#b79c7b]"
+                class="w-full px-4 py-3 border border-primary-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary-400 bg-white placeholder:text-primary-300"
                 placeholder="••••••••"
               />
               <button
                 type="button"
-                class="absolute right-3 top-3 text-[#856b53] hover:text-[#6b4226]"
+                class="absolute right-3 top-3 text-[#856b53] hover:text-primary-800"
                 on:click={() => (showPassword = !showPassword)}
               >
                 {#if showPassword}
@@ -108,15 +108,16 @@
 
           <button
             type="submit"
-            class="w-full bg-[#6b4226] text-white py-3 rounded-xl font-semibold hover:bg-[#5a3820] transition"
+            class="w-full bg-primary-500 text-white py-3 rounded-xl font-semibold hover:bg-primary-600 transition"
           >
+          
             Sign Up
           </button>
-        </form>
+        </form> 
 
         <p class="text-center text-sm text-[#856b53] mt-6">
           Already have account.
-          <a href="/signin" class="text-[#c49b63] font-medium hover:underline"
+          <a href="/signin" class="text-primary-700 font-medium hover:underline"
             >Sign in</a
           >
         </p>
@@ -125,7 +126,7 @@
 
     <!-- Right side: image / quote -->
     <div
-      class="hidden md:flex w-1/2 bg-[#6b4226] text-[#fdf6ec] flex-col items-center justify-center p-12 relative overflow-hidden"
+      class="hidden md:flex w-1/2 bg-primary-500 text-[#fdf6ec] flex-col items-center justify-center p-12 relative overflow-hidden"
       transition:fade={{ duration: 600 }}
     >
       <img
