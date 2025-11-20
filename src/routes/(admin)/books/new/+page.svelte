@@ -8,6 +8,6 @@
 </script>
 
 <div class="max-w-3xl">
-  <h2 class="text-2xl font-semibold mb-4">Add Book</h2>
+  <!-- <h2 class="text-2xl font-semibold mb-4">Add Book</h2> -->
   <BookForm on:save={handleSave} />
 </div>

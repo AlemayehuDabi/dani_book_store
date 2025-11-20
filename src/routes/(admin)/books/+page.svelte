@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import BookTable from '$lib/components/BookTable.svelte';
   import Modal from '$lib/components/ui/Modal.svelte';
-  import BookForm from '$lib/components/BookTable.svelte';
+  import BookForm from '$lib/components/BookForm.svelte';
   import type { Book } from '$lib/data/books';
   let books: Book[] = [];
   let open = false;
@@ -33,9 +33,8 @@
   <h2 class="text-2xl font-semibold">Books</h2>
   <div class="flex items-center gap-3">
     <button
-      class="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700"
-      on:click={onCreate}>Add Book</button
-    >
+    class="px-4 py-2 rounded-md bg-primary-500 text-white hover:bg-primary-600" on:click={onCreate}>Add Book</button
+  >
   </div>
 </div>
 

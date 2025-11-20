@@ -54,13 +54,18 @@ model Key {
 }
 
 model Books {
-  id          Int     @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
   description String?
-  isInStock   Boolean @default(false)
-  bookId      String
-  author      User    @relation(fields: [bookId], references: [id])
+  slug        String?  @unique
+  stock       Int      @default(0)
+  coverUrl    String?
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  isInStock   Boolean  @default(false) 
+
+  @@index([authorId])
 }

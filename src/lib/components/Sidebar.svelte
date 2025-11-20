@@ -1,6 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { LayoutDashboard, Book, ShoppingCart, Users, Tag, BarChart, Settings } from '@lucide/svelte';
+  import { LayoutDashboard, Book, ShoppingCart, Users, Tag, BarChart, Settings, PlusCircle } from '@lucide/svelte';
 
   let isOpen = $state(false);
   const items = [
@@ -11,6 +11,7 @@
     { title: 'Categories', href: '/categories', icon: Tag },
     { title: 'Analytics', href: '/analytics', icon: BarChart },
     { title: 'Settings', href: '/settings', icon: Settings },
+    {title:'Add Book', href: '/books/new', icon: PlusCircle}
   ];
 
   function navigate(href: string) {
@@ -28,7 +29,7 @@
       on:click={() => navigate('/dashboard')}
     >
       <div
-        class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-600 to-indigo-400 flex items-center justify-center text-white font-bold"
+        class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center text-white font-bold"
       >
         DB
       </div>
@@ -36,7 +37,7 @@
     </div>
   </div>
 
-  <nav class="mt-6 px-2">
+  <nav class="mt-6 px-2 mb-4 space-y-2">
     {#each items as item}
     {@const Icon= item.icon}
       <a
@@ -49,7 +50,7 @@
     {/each}
   </nav>
 
-  <div class="mt-auto p-4 border-t border-gray-100">
+  <div class="mt-auto p-4 border-t border-gray-100 pt-4">
     <div class="flex items-center gap-3">
       <img
         src="/avatar-placeholder.png"
