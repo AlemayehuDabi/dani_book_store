@@ -9,6 +9,8 @@ export interface Book {
   rating: number;
   publishedYear: number;
   pages: number;
+  stock?: number;
+  featured?: boolean;
 }
 
 export const books: Book[] = [

@@ -1,4 +1,5 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import 'tailwindcss';
 
 @theme {
   /* ====================== PRIMARY – AGED BURGUNDY (Pure bookstore luxury) ====================== */
@@ -36,7 +37,6 @@
   --color-border:      #e8e2de;
 }
 
-/* ====================== DARK MODE – This is straight-up gorgeous ====================== */
 .dark {
   --color-bg-base:     #110e0d;
   --color-bg-surface:  #1a1514;
@@ -51,41 +51,140 @@
   --color-primary-700: #f0c2c9;
 }
 
-/* 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-
 @layer base {
-  html {
+  :root {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-base);
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-[var(--color-bg-base)] text-[var(--color-text-primary)] min-h-screen;
+  }
+
+  /* Better text selection */
+  ::selection {
+    @apply bg-primary-100 text-primary-900 dark:bg-primary-900/50 dark:text-primary-100;
   }
   
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
+  /* Custom focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-[var(--color-bg-base)];
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-[var(--color-text-primary)];
+  }
+  
+  h1 { @apply text-4xl md:text-5xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  h5 { @apply text-lg md:text-xl; }
+  h6 { @apply text-base md:text-lg; }
+  
+  p {
+    @apply text-[var(--color-text-secondary)] leading-relaxed;
+  }
+  
+  /* Links */
+  a {
+    @apply text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200;
   }
 }
 
-@layer components {
+@layer utilities {
+  /* Glass panel effect */
+  .glass-panel {
+    @apply rounded-3xl border border-white/30 bg-white/70 shadow-lg shadow-primary-900/5 backdrop-blur-xl transition-all duration-300 hover:shadow-xl hover:shadow-primary-900/10 dark:border-white/5 dark:bg-white/5 dark:hover:shadow-primary-900/20;
+  }
+
+  /* Luxury typography */
+  .luxury-heading {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+    @apply font-medium tracking-tight;
+  }
+  
+  /* Subtle text shadow for better contrast */
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .text-shadow {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-500) var(--color-bg-muted);
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: var(--color-bg-muted);
+    border-radius: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary-500);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary-600);
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-primary-900/10;
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 border border-primary-600 shadow-sm hover:shadow-md;
   }
   
-  .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-primary-700 font-semibold py-3 px-6 rounded-lg border border-primary-200 transition-all duration-300 transform hover:scale-105 hover:shadow-md;
+  .btn-outline {
+    @apply border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 focus:ring-gray-500 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800;
   }
   
-  .card {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+  /* Form elements */
+  .input {
+    @apply w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400;
   }
   
-  .book-card {
-    @apply card p-6 cursor-pointer group;
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-300;
   }
-  
-  .hero-gradient {
-    @apply bg-gradient-to-br from-primary-50 via-white to-accent-50;
-  }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
-  }
-} */
+}
