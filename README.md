@@ -1,7 +1,7 @@
-# 📚 Dani Book Store
+# 📚 Bloggy
 
 A **modern, full-stack book store platform** built with **SvelteKit**, **TailwindCSS**, **Prisma**, **Neon**, and **Better Auth**.  
-Dani Book Store allows users to explore, favorite, and purchase books, while providing an intuitive **admin dashboard** for managing content — all within a clean, responsive design.
+Bloggy allows users to explore, favorite, and purchase books, while providing an intuitive **admin dashboard** for managing content — all within a clean, responsive design.
 
 ---
 
