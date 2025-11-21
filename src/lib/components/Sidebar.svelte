@@ -112,7 +112,7 @@
     </div>
   </div>
 
-  <nav class="mt-6 flex-1 space-y-6 px-3 py-2 text-sm">
+  <nav class="my-6 flex-1 space-y-6 px-3 py-2 text-sm touch-auto overflow-auto">
     {#each navGroups as group (group.label)}
       <div>
         <p class="px-2 text-[0.7rem] uppercase tracking-[0.3em] text-[var(--color-text-secondary)]/70">

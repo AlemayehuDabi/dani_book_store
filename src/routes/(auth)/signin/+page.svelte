@@ -27,7 +27,7 @@
         class="absolute inset-0 w-full h-full object-cover opacity-30"
       />
       <div class="relative z-10 text-center">
-        <h2 class="text-4xl font-serif mb-4">
+        <h2 class="text-4xl font-serif mb-4 text-white">
           “A room without books is like a body without a soul.”
         </h2>
         <p class="text-[#f4e9d7] text-sm tracking-wide font-medium">
